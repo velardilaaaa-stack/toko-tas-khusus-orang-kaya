@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toko Tas Khusus Orang Kaya</title><style>
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #fff6f3, #ffe0d6);
+    margin: 0;
+}
+
+.home {
+    text-align: center;
+    padding: 40px;
+}
+
+h1 { color: #ee4d2d; }
+
+.marquee {
+    background: #ee4d2d;
+    color: white;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.start-btn {
+    background: #ee4d2d;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.start-btn:hover {
+    background: #c63c20;
+    transform: scale(1.05);
+}
+
+/* SLIDER */
+.slider {
+    width: 300px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slides {
+    display: flex;
+    animation: slide 9s infinite;
+}
+
+.slides img {
+    width: 300px;
+}
+
+@keyframes slide {
+    0% {transform: translateX(0);} 
+    33% {transform: translateX(-300px);} 
+    66% {transform: translateX(-600px);} 
+    100% {transform: translateX(0);} 
+}
+
+/* tabel */
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+td, th {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+}
+th {
+    background: #ee4d2d;
+    color: white;
+}
+
+/* TOKO */
+.shop { display:none; padding:20px; }
+.main { display:flex; gap:30px; flex-wrap:wrap; }
+.container { display:flex; gap:20px; flex-wrap:wrap; }
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product img {
+    width:100px; height:100px; object-fit:cover;
+}
+
+button {
+    margin-top: 10px;
+    padding: 6px 12px;
+    border: none;
+    background-color: #ee4d2d;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+}
+
+#popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ee4d2d;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: none;
+}
+</style></head><body><!-- HOME --><div class="home" id="home"><h1>🛍 Toko Tas Khusus Orang Kaya</h1><div class="marquee">
+<marquee>🔥 DISKON BESAR! Tas kekinian mulai 25RB 🔥</marquee>
+</div><p>Selamat datang di toko kami!</p><!-- SLIDER --><div class="slider">
+    <div class="slides">
+        <img src="slingbag.jpg">
+        <img src="totebag.jpeg">
+        <img src="kanken.jpg">
+        <img src="hermes birkin.jpg">
+    </div>
+</div><!-- TABEL --><table>
+<tr><th>Produk</th><th>Harga</th></tr>
+<tr><td>Totebag</td><td>Rp 25.000</td></tr>
+<tr><td>Slingbag</td><td>Rp 75.000</td></tr>
+<tr><td>Tas Kanken</td><td>Rp 450.000</td></tr>
+<tr><td>Hermes birkin bag</td><td>Rp 1.000.000</td></tr>
+
+</table><!-- LIST --><h3>🔥 Produk Favorit:</h3>
+<ul style="list-style:none; padding:0;">
+<li>✔ Slingbag Kekinian</li>
+<li>✔ Totebag Kanvas</li>
+<li>✔ Tas Ransel Stylish</li>
+</ul><button class="start-btn" onclick="masukToko()">Masuk ke Toko</button> <button class="start-btn" onclick="masukToko()">Beli Sekarang</button>
+
+</div><!-- TOKO --><div class="shop" id="shop">
+<h1>🛒 Toko Tas Khusus Orang Kaya</h1><div class="main">
+<div class="container"><!-- 12 PRODUK (SUDAH LENGKAP 12 ITEM) --><!-- 1-12 biar jelas --><div class="product"><img src="slingbag.jpg"><h3>1. Slingbag</h3><p>Rp 75.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Slingbag',75000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Slingbag',75000)">Beli</button></div>
+<div class="product"><img src="totebag.jpeg"><h3>2. Totebag</h3><p>Rp 25.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Totebag',25000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Totebag',25000)">Beli</button></div>
+<div class="product"><img src="kanken.jpg"><h3>3. Tas Kanken</h3><p>Rp 450.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Tas Kanken',450000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Tas Kanken',450000)">Beli</button></div><div class="product"><img src="handback kulit.jpg"><h3>4. Tas Selempang Bahan kulit</h3><p>Rp 150.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Tas Selempang',150000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('tas selempang',60000)">Beli</button></div>
+<div class="product"><img src="hermes birkin.jpg"><h3>5. Hermes Birkin Bag</h3><p>Rp 150.000.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Hermes Birkin bag',150000000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Hermes birkin bag',150000000)">Beli</button></div>
+<div class="product"><img src="istockphoto-1365118618-612x612.jpg"><h3>6. Tas fashion</h3><p>Rp 120.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Tas Fashion',120000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Tas fashion',120000)">Beli</button></div><div class="product"><img src="tas laptop.jpg"><h3>7. Tas laptop</h3><p>Rp 200.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Tas laptop',200000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Tas Kulit',200000)">Beli</button></div>
+<div class="product"><img src="crybaby bag.jpg"><h3>Limited edition Crybaby bag </h3><p>Rp 995.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Crybaby bag',995000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Crybaby bag',95000)">Beli</button></div>
+<div class="product"><img src="tas gunung.jpg"><h3>9. Tas gunung</h3><p>Rp 600.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Tas gunung',600000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Tas koper pinkie',80000)">Beli</button></div><div class="product"><img src="tas koper pinkie.jpg"><h3>Tas Koper pinkie</h3><p>Rp 110.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Tas Koper pinkie',110000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Tas Koper pinkie',110000)">Beli</button></div>
+<div class="product"><img src="tas ransel bulu.jpg"><h3>11. Tas ransel bulu</h3><p>Rp 300.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Tas ransel bulu',300000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Tas ransel bulu',300000)">Beli</button></div>
+<div class="product"><img src="led knight.jpg"><h3>12. Tas led Knight</h3><p>Rp 2.130.000</p>
+<div style="color:#ff9800; font-size:14px;">⭐ 4.8 / 5</div><button onclick="addToCart('Tas led knight',2130000)">Masuk Keranjang</button>
+<button onclick="beliLangsung('Tas Sport',130000)">Beli</button></div></div><div class="cart">
+<h2>🛒 Keranjang</h2>
+<div id="cartItems"></div>
+<p><b>Total: Rp <span id="total">0</span></b></p>
+<button onclick="checkout()">Checkout WhatsApp</button>
+</div></div>
+</div><div id="popup"></div><script>
+let total = 0;
+
+function masukToko(){
+    document.getElementById('home').style.display='none';
+    document.getElementById('shop').style.display='block';
+}
+
+function addToCart(n,p){
+let c=document.getElementById('cartItems');
+let d=document.createElement('div');
+d.innerHTML=`<input type='checkbox' data-price='${p}' onchange='updateTotal()'> ${n} - Rp ${p} <button onclick='this.parentElement.remove();updateTotal()'>❌</button>`;
+c.appendChild(d);
+showPopup('✔ ditambah');
+}
+
+function updateTotal(){
+let c=document.querySelectorAll('#cartItems input:checked');
+total=0;
+c.forEach(x=>total+=parseInt(x.dataset.price));
+document.getElementById('total').innerText=total;
+}
+
+function beliLangsung(n,p){
+let url="https://wa.me/6289520627841?text=Saya mau beli "+n+" Rp "+p;
+window.open(url);
+}
+
+function checkout(){
+if(total>0){
+let url="https://wa.me/6289520627841?text=Pesan total Rp "+total;
+window.open(url);
+}
+}
+
+function showPopup(m){
+let p=document.getElementById('popup');
+p.innerText=m;
+p.style.display='block';
+setTimeout(()=>p.style.display='none',2000);
+}
+</script></body>
+</html>
